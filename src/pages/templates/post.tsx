@@ -1,13 +1,15 @@
 import * as React from 'react';
 import type { HeadFC } from 'gatsby';
+import { graphql } from 'gatsby';
 
-const IndexPage = () => {
+const PostPage = ({ data }) => {
+  console.log(title);
   return (
     <main>
-      <h1>Pushing Primitives: Photography by Thomas Sweeney</h1>
+      <h1>{data.title}</h1>
     </main>
   );
 };
 
-export default IndexPage;
+export default PostPage;
 export const Head = () => <title>Pushing Primitives: Photography by Thomas Sweeney</title>;

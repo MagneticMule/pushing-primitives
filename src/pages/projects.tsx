@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { HeadFC } from 'gatsby';
 
-const IndexPage = () => {
+const ProjectsPage = () => {
   return (
     <main>
       <h1>Pushing Primitives: Photography by Thomas Sweeney</h1>
@@ -9,5 +9,5 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default ProjectsPage;
 export const Head = () => <title>Pushing Primitives: Photography by Thomas Sweeney</title>;
