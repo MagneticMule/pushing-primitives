@@ -1,38 +1,38 @@
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
-            query PhotoQuery{
-              allSanityPost {
-                edges {
-                  node {
-                    title
-                    categories {
-                      title
-                      description
-                      id
-                    }
-                    body {
-                      children {
-                        text
-                      }
-                    }
-                    slug {
-                      _key
-                      _type
-                      current
-                    }
-                    mainImage {
-                      asset {
-                        gatsbyImage(width: 1200)
-                      }
-                    }
-                  }
-                }
-              }
-            }
-  `);
-  data.allSanityPost.edges.forEach(edge => {
-    const slug = edge.node.slug.current
-    const title = edge.node.title
+  query PhotoQuery {
+    posts: allSanityPost {
+      nodes {
+        title
+        categories {
+          title
+          description
+          id
+        }
+        body {
+          children {
+            text
+          }
+        }
+        slug {
+          _key
+          _type
+          current
+        }
+        mainImage {
+          asset {
+            gatsbyImageData(width: 1200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
+        }
+      }
+    }
+  }
+`)
+
+
+  data.posts.nodes.forEach(post => {
+    const slug = post.slug.current;
+    const title = post.title;
     console.log("Creating photograph at " + slug);
     actions.createPage({
       path: slug,
