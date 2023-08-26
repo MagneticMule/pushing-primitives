@@ -1,10 +1,13 @@
 import * as React from 'react';
 import type { HeadFC } from 'gatsby';
+import Layout from './../components/Layout';
 
 const IndexPage = () => {
   return (
     <main>
-      <h1>Pushing Primitives: Photography by Thomas Sweeney</h1>
+      <Layout>
+        <h1>Pushing Primitives: Photography by Thomas Sweeney</h1>
+      </Layout>
     </main>
   );
 };

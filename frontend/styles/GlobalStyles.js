@@ -5,12 +5,19 @@ const GlobalStyles = createGlobalStyle`
 :root {
   --padding-large: 40px;
   --global-padding: var(--padding-large);
+
+  --clr-light:#ffffff;
+  --clr-dark:#000000;
+
+  --clr-foreground: var(--clr-dark);
+  --clr-background: var(--clr-light);
 }
 
   body {
     margin: 0;
     padding: 0;
-    background: #fff;
+    background: var(--clr-background);
+    color: var(--clr-foreground);
     font-family: Open-Sans, Helvetica, Sans-Serif;
     font-size:16px;
   }
@@ -21,10 +28,7 @@ const GlobalStyles = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: inherit;
   }
-  body {
-    background: var(--white);
-    color: var(--black);
-  }
+
   menu{
     margin:0;
     padding:0;

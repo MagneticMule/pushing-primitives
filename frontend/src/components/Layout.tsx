@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import GlobalStyle from '../../styles/GlobalStyles.js';
-import { theme } from '../../styles/GlobalStyles.js';
+import GlobalStyle from '../../styles/GlobalStyles';
+import { theme } from '../../styles/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
 
 const Layout = ({ children }) => (
-  <SiteRoot>
+  <>
     <GlobalStyle />
     <ThemeProvider theme={theme}>{children}</ThemeProvider>
-  </SiteRoot>
+  </>
 );
 
 Layout.propTypes = {

@@ -45,7 +45,7 @@ export default {
     {
       name: 'body',
       title: 'Blurb',
-      type: 'blockContent',
+      type: 'text',
     },
   ],
 
