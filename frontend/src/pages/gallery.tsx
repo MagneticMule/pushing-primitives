@@ -11,6 +11,8 @@ const Gallery = styled.section`
   display: grid;
   gap: 1em;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  justify-items: center;
 `;
 
 const ImageCard = styled.div``;
