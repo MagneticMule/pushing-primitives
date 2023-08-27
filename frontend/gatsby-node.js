@@ -1,7 +1,7 @@
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
   query PhotoQuery {
-    images: allSanityPost {
+    posts: allSanityPost {
       nodes {
         title
         categories {
@@ -9,11 +9,7 @@ exports.createPages = async function ({ actions, graphql }) {
           description
           id
         }
-        body {
-          children {
-            text
-          }
-        }
+        body: _rawBody
         slug {
           _key
           _type
@@ -30,15 +26,15 @@ exports.createPages = async function ({ actions, graphql }) {
 `)
 
 
-  data.images.nodes.forEach(image => {
-    const slug = image.slug.current;
-    const title = image.title;
-    console.log("Creating photograph at " + slug);
+  data.posts.nodes.forEach(post => {
+    const path = `/gallery/${post.slug.current}`;
+    const title = post.title;
+    console.log("Creating photograph at " + path);
     actions.createPage({
-      path: slug,
+      path,
       component: require.resolve(`./src/pages/templates/single-image.tsx`),
       context: {
-        slug: slug,
+        slug: post.slug.current,
         title: title
       },
     })

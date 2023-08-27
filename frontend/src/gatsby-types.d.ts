@@ -4340,5 +4340,10 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
+type PhotoQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PhotoQueryQuery = { readonly posts: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly categories: ReadonlyArray<{ readonly title: string | null, readonly description: string | null, readonly id: string } | null> | null, readonly body: ReadonlyArray<{ readonly children: ReadonlyArray<{ readonly text: string | null } | null> | null } | null> | null, readonly slug: { readonly _key: string | null, readonly _type: string | null, readonly current: string | null } | null, readonly mainImage: { readonly asset: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> } };
+
 
 }

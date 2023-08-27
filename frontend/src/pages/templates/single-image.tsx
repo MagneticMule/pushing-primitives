@@ -4,14 +4,20 @@ import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
+const PostContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
 const PostPage = ({ data }) => {
   const { post } = data;
+  console.log(post);
   const image = getImage(post.mainImage.asset);
   return (
-    <main>
+    <PostContainer>
       <h1>{post.title}</h1>
       <GatsbyImage image={image} alt={post.title} />
-    </main>
+      <p>{post.body}</p>
+    </PostContainer>
   );
 };
 
@@ -24,11 +30,7 @@ export const query = graphql`
         description
         id
       }
-      body {
-        children {
-          text
-        }
-      }
+      body: _rawBody
       slug {
         _key
         _type

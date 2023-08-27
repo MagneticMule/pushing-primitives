@@ -46,6 +46,7 @@ export default {
       name: 'body',
       title: 'Blurb',
       type: 'text',
+      rows: 4,
     },
   ],
 

@@ -6,9 +6,11 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 const Gallery = styled.section`
+  margin: 0 auto;
   max-width: 1200px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 `;
 
 const ImageCard = styled.div``;
@@ -22,8 +24,7 @@ const GalleryPage = ({ data }) => {
         {posts.map((post, index: Number) => (
           <div>
             <h3>{post.title}</h3>
-            {console.log(post.slug.current);}
-            <Link to='{post.slug.current}'>
+            <Link to={post.slug.current}>
               <GatsbyImage image={post.mainImage.asset.gatsbyImageData} alt='{post.blurb}' />
             </Link>
           </div>
@@ -55,7 +56,7 @@ export const query = graphql`
         }
         mainImage {
           asset {
-            gatsbyImageData(width: 320, height: 240, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(width: 280, height: 200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
           }
         }
       }
